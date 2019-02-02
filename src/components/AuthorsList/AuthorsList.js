@@ -11,6 +11,9 @@ import { getAuthors } from '../../actions/authors'
 // components
 import Authors from '../Authors/Authors'
 
+// styles
+import './AuthorsList.css'
+
 class AuthorsList extends Component {
   componentDidMount = () => {
     this.props.getAuthors()
@@ -18,7 +21,11 @@ class AuthorsList extends Component {
 
   render() {
     const { authors } = this.props
-    return <Authors authors={authors} />
+    return (
+      <div className='authors-list'>
+        <Authors authors={authors} />
+      </div>
+    )
   }
 }
 

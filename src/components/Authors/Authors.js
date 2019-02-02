@@ -1,20 +1,20 @@
 // react
 import React from 'react'
 
-// styles
-// import ''
-
 // components
 import Author from '../Author/Author'
 
 const Authors = props => {
-  return (
-    <div>
-      {props.authors.map((item, i) => {
-        return <Author key={i++} item={item} />
-      })}
-    </div>
-  )
+  return props.authors.map((item, index) => {
+    return (
+      <Author
+        key={index}
+        index={index}
+        item={item}
+        first={item.name.charAt(0)}
+      />
+    )
+  })
 }
 
 export default Authors

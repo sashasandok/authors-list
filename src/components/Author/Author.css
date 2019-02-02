@@ -1,0 +1,50 @@
+.author-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 5px;
+  border: 1px solid gray;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+.author-index {
+  width: 20%;
+}
+
+.first-letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: aquamarine;
+}
+
+.author-name {
+  width: 50%;
+}
+
+.author-name p {
+  cursor: pointer;
+}
+
+.author-name > span {
+  min-width: 100px;
+  text-align: left;
+}
+
+.author-pageviews {
+  width: 20%;
+  cursor: pointer;
+}

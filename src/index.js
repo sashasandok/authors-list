@@ -8,6 +8,8 @@ import { logger } from 'redux-logger'
 import { Provider } from 'react-redux'
 import reducers from './reducers/index'
 
+import 'semantic-ui-css/semantic.min.css'
+
 const middleware = [thunk]
 const devMiddleware = [logger]
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
