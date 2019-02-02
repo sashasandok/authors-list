@@ -25,7 +25,7 @@ export default actions
 
 export const getAuthors = () => async (dispatch, getState) => {
   dispatch(actions.authors.request())
-  console.log(data)
+
   try {
     dispatch(
       actions.authors.success({

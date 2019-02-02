@@ -4,7 +4,7 @@ import React from 'react'
 // styles
 import './Author.css'
 
-const Author = ({ item, index, first }) => {
+const Author = ({ item, index, first, sortItems }) => {
   return (
     <div className='author-item'>
       <div className='author-info'>

@@ -1,0 +1,10 @@
+.no-match {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  font-size: 23px;
+  font-style: italic;
+  color: rgb(121, 43, 38);
+}

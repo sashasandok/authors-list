@@ -15,6 +15,7 @@ class AuthorsSearch extends Component {
           iconPosition='left'
           placeholder='Search...'
           fluid
+          onChange={evt => this.props.onInputChange(evt.target.value)}
         />
       </div>
     )
