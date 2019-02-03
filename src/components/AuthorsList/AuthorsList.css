@@ -3,3 +3,7 @@
   margin-top: 8px;
   min-height: 82vh;
 }
+
+.authors-list .author-item:nth-child(even) {
+  background-color: rgba(211, 211, 211, 0.253);
+}

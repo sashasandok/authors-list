@@ -17,7 +17,7 @@ import data from '../data.json'
 export const PAGE_COUNT = 7
 
 const actions = createActions({
-  authors: {
+  author: {
     request: x => x,
     success: x => x,
     error: x => x,
@@ -31,26 +31,28 @@ const actions = createActions({
 export default actions
 
 export const getAuthors = () => async (dispatch, getState) => {
-  dispatch(actions.authors.request())
+  dispatch(actions.author.request())
+
   const items = data.map(authorMapper)
   const pages = divideToPages(items, PAGE_COUNT)
-  console.log(pages)
+  // console.log(pages)
+
   try {
     dispatch(
-      actions.authors.success({
+      actions.author.success({
         pagination: data.pagination,
         items: pages,
       }),
     )
   } catch (e) {
-    dispatch(actions.authors.error({ error: e }))
+    dispatch(actions.author.error({ error: e }))
     console.log(e)
   }
 }
 
 export const filterAuthors = value => async dispatch => {
   dispatch(
-    actions.authors.filter.success({
+    actions.author.filter.success({
       result: value,
     }),
   )

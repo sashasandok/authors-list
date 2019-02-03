@@ -2,7 +2,7 @@
 import React from 'react'
 
 // actions
-import { PAGE_COUNT } from '../../actions/authors'
+import { PAGE_COUNT } from '../../actions/authorActions'
 
 // styles
 import './Author.css'

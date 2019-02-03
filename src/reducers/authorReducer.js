@@ -2,7 +2,7 @@
 import { handleActions } from 'redux-actions'
 
 // Actions
-import actions from '../actions/authors'
+import actions from '../actions/authorActions'
 
 export const initialState = {
   isFetching: false,
@@ -14,20 +14,20 @@ export const initialState = {
 
 export default handleActions(
   {
-    [actions.authors.request]: state => ({
+    [actions.author.request]: state => ({
       ...state,
       isFetching: true,
       error: '',
     }),
 
-    [actions.authors.success]: (state, { payload }) => ({
+    [actions.author.success]: (state, { payload }) => ({
       ...state,
       isFetching: false,
       items: payload.items,
       [payload.page]: payload.items,
     }),
 
-    [actions.authors.error]: (state, { payload }) => ({
+    [actions.author.error]: (state, { payload }) => ({
       ...state,
       isFetching: false,
       error: payload.error,
@@ -38,19 +38,19 @@ export default handleActions(
       page: payload.page,
     }),
 
-    [actions.authors.filter.request]: state => ({
+    [actions.author.filter.request]: state => ({
       ...state,
       isFetching: true,
       error: '',
     }),
 
-    [actions.authors.filter.success]: (state, { payload }) => ({
+    [actions.author.filter.success]: (state, { payload }) => ({
       ...state,
       isFetching: false,
       result: payload.result,
     }),
 
-    [actions.authors.filter.error]: (state, { payload }) => ({
+    [actions.author.filter.error]: (state, { payload }) => ({
       ...state,
       isFetching: false,
       error: payload.error,

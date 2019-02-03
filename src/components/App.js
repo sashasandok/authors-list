@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 // actions
-import { getAuthors, filterAuthors, setPage } from '../actions/authors'
+import { getAuthors, filterAuthors, setPage } from '../actions/authorActions'
 
 // styles
 import './App.css'
@@ -27,7 +27,7 @@ class App extends Component {
     this.props.filterAuthors(value)
   }
 
-  onPaginationChange = ({ activePage }) => {
+  onPaginationChange = (e, { activePage }) => {
     this.props.setPage({ page: activePage })
   }
 
@@ -41,6 +41,7 @@ class App extends Component {
           activePage={page}
           onPageChange={this.onPaginationChange}
           totalPages={5}
+          id='paging'
         />
       </div>
     )

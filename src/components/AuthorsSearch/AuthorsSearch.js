@@ -17,6 +17,7 @@ const AuthorsSearch = props => {
         fluid
         onChange={evt => props.onInputChange(evt.target.value)}
         size='massive'
+        id='input'
       />
     </div>
   )
