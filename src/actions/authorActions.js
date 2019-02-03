@@ -33,9 +33,18 @@ export default actions
 export const getAuthors = () => async (dispatch, getState) => {
   dispatch(actions.author.request())
 
-  const items = data.map(authorMapper)
+  const sorted = data.sort((a, b) => {
+    if (a.pageviews > b.pageviews) {
+      return -1
+    }
+    if (a.pageviews < b.pageviews) {
+      return 1
+    }
+    return 0
+  })
+
+  const items = sorted.map(authorMapper)
   const pages = divideToPages(items, PAGE_COUNT)
-  // console.log(pages)
 
   try {
     dispatch(

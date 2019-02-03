@@ -38,18 +38,28 @@
 
 .author-name {
   width: 50%;
+  text-align: left;
 }
 
 .author-name p {
   cursor: pointer;
+  font-weight: bold;
 }
 
-.author-name > span {
-  min-width: 100px;
-  text-align: left;
+.author-name span {
+  color: rgb(139, 139, 139);
 }
 
 .author-pageviews {
   width: 20%;
   cursor: pointer;
+}
+
+.item-appear {
+  opacity: 0.01;
+}
+
+.item-appear.item-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
 }
