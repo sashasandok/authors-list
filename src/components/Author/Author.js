@@ -1,14 +1,17 @@
 // react
 import React from 'react'
 
+// actions
+import { PAGE_COUNT } from '../../actions/authors'
+
 // styles
 import './Author.css'
 
-const Author = ({ item, index, first, sortItems }) => {
+const Author = ({ item, index, page, first }) => {
   return (
     <div className='author-item'>
       <div className='author-info'>
-        <p className='author-index'>{index + 1}</p>
+        <p className='author-index'>{(page - 1) * PAGE_COUNT + index + 1}</p>
         <p className='first-letter'>{first}</p>
         <div className='author-name'>
           <p>{item.name}</p>

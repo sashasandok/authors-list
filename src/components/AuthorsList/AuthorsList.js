@@ -1,5 +1,5 @@
 // react
-import React, { Component } from 'react'
+import React from 'react'
 
 // components
 import Authors from '../Authors/Authors'
@@ -7,19 +7,16 @@ import Authors from '../Authors/Authors'
 // styles
 import './AuthorsList.css'
 
-class AuthorsList extends Component {
-  render() {
-    const { authors } = this.props
-    return (
-      <div className='authors-list'>
-        <Authors
-          authors={authors}
-          onInputChange={this.onInputChange}
-          result={this.props.result}
-        />
-      </div>
-    )
-  }
+const AuthorsList = props => {
+  return (
+    <div className='authors-list'>
+      <Authors
+        authors={props.authors}
+        result={props.result}
+        page={props.page}
+      />
+    </div>
+  )
 }
 
 export default AuthorsList

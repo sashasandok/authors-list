@@ -4,7 +4,19 @@
   justify-content: center;
   align-items: center;
   height: 10vh;
-  font-size: 23px;
+  font-size: 1.7vw;
   font-style: italic;
   color: rgb(121, 43, 38);
+}
+
+@media all and (max-width: 720px) {
+  .no-match {
+    font-size: 3.5vw;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .no-match {
+    font-size: 4vw;
+  }
 }

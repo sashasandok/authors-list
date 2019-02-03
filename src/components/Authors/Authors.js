@@ -22,6 +22,7 @@ const Authors = props => {
             key={index}
             index={index}
             item={item}
+            page={props.page}
             first={item.name.charAt(0)}
           />
         )

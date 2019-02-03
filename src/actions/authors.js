@@ -5,10 +5,16 @@ import 'babel-polyfill'
 import { createActions } from 'redux-actions'
 
 // mappers
-// import mapper from '../mappers/movies'
+import authorMapper from '../mappers/authorMapper'
+
+// utils
+import { divideToPages } from '../utils/paging'
 
 // api
 import data from '../data.json'
+
+// constants
+export const PAGE_COUNT = 7
 
 const actions = createActions({
   authors: {
@@ -19,17 +25,21 @@ const actions = createActions({
       success: x => x,
     },
   },
+  setPage: x => x,
 })
 
 export default actions
 
 export const getAuthors = () => async (dispatch, getState) => {
   dispatch(actions.authors.request())
-
+  const items = data.map(authorMapper)
+  const pages = divideToPages(items, PAGE_COUNT)
+  console.log(pages)
   try {
     dispatch(
       actions.authors.success({
-        items: data,
+        pagination: data.pagination,
+        items: pages,
       }),
     )
   } catch (e) {
@@ -44,4 +54,8 @@ export const filterAuthors = value => async dispatch => {
       result: value,
     }),
   )
+}
+
+export const setPage = ({ page }) => async dispatch => {
+  dispatch(actions.setPage({ page }))
 }

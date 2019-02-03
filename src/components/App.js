@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 // actions
-import { getAuthors, filterAuthors } from '../actions/authors'
+import { getAuthors, filterAuthors, setPage } from '../actions/authors'
 
 // styles
 import './App.css'
@@ -14,6 +14,9 @@ import './App.css'
 // components
 import AuthorsList from './AuthorsList/AuthorsList'
 import AuthorsSearch from './AuthorsSearch/AuthorsSearch'
+
+// semantic-ui
+import { Pagination } from 'semantic-ui-react'
 
 class App extends Component {
   componentDidMount = () => {
@@ -24,13 +27,20 @@ class App extends Component {
     this.props.filterAuthors(value)
   }
 
+  onPaginationChange = ({ activePage }) => {
+    this.props.setPage({ page: activePage })
+  }
+
   render() {
+    const { page, authors, searchResult } = this.props
     return (
       <div className='app'>
         <AuthorsSearch onInputChange={this.onInputChange} />
-        <AuthorsList
-          authors={this.props.authors}
-          result={this.props.searchResult}
+        <AuthorsList authors={authors} result={searchResult} page={page} />
+        <Pagination
+          activePage={page}
+          onPageChange={this.onPaginationChange}
+          totalPages={5}
         />
       </div>
     )
@@ -39,8 +49,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    authors: state.authors.items,
+    authors: state.authors.items[state.authors.page] || [],
     searchResult: state.authors.result,
+    page: state.authors.page,
   }
 }
 
@@ -49,6 +60,7 @@ const mapDispatchToProps = dispatch =>
     {
       getAuthors,
       filterAuthors,
+      setPage,
     },
     dispatch,
   )
