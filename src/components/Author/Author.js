@@ -33,7 +33,7 @@ const Author = ({ item, index, page, first }) => {
             <span>{item.count_pub} публ.</span>
           </div>
         </div>
-        {(page - 1) * PAGE_COUNT + index + 1 <= 3
+        {Math.max(item.pageviews)
           ? logos.map((logo, i) => {
               return i === index ? (
                 <img
