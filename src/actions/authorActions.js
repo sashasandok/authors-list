@@ -31,17 +31,10 @@ const actions = createActions({
 export default actions
 
 export const getAuthors = () => async (dispatch, getState) => {
-  dispatch(actions.author.request())
-
   const sorted = data.sort((a, b) => {
-    if (a.pageviews > b.pageviews) {
-      return -1
-    }
-    if (a.pageviews < b.pageviews) {
-      return 1
-    }
-    return 0
+    return a.pageviews > b.pageviews ? -1 : 1
   })
+  dispatch(actions.author.request())
 
   const items = sorted.map(authorMapper)
   const pages = divideToPages(items, PAGE_COUNT)
