@@ -4,6 +4,6 @@
   min-height: 82vh;
 }
 
-.authors-list .author-item:nth-child(even) {
+.authors-list .author-item:nth-of-type(even) {
   background-color: rgba(211, 211, 211, 0.253);
 }

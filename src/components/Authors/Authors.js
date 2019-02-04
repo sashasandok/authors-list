@@ -13,8 +13,9 @@ const Authors = props => {
   ) : (
     props.authors
       .filter(item => {
+        const text = props.result && props.result.toLowerCase()
         const searchStr = `${item.name}`
-        return searchStr.toLowerCase().includes(props.result)
+        return searchStr.toLowerCase().includes(text)
       })
       .map((item, index) => {
         return (
